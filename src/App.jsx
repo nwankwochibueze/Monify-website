@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Faq = lazy(() => import("./pages/Faq"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Router Setup
 const router = createBrowserRouter([
@@ -14,8 +15,9 @@ const router = createBrowserRouter([
     element: <Layout />, // Layout wraps everything
     children: [
       { path: "/", element: <Home /> },
-      { path: "/about", element: <About /> }, // Ensure this is correct
+      { path: "/about", element: <About /> }, //
       { path: "/faq", element: <Faq /> },
+      { path: "*", element: <NotFound /> },
     ],
   },
 ]);
