@@ -1,3 +1,4 @@
+// src/components/InnovativeSolutions.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import Fintech5 from "../assets/Fintech5.webp";
@@ -16,8 +17,8 @@ const InnovativeSolutions = () => {
     <main className="min-h-screen bg-green-200 pt-20">
       <div className="p-8 md:p-16 lg:p-20 pb-0">
         <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={textRevealVariant}>
-          {/* Page-level h1 for the About page — one step larger than section h2s */}
-          <h1 className="font-heading text-4xl md:text-5xl font-bold text-slate-900 mb-10 md:mb-16 tracking-tight text-center md:text-left">
+          {/* ADDED font-heading */}
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-10 md:mb-16 tracking-tight text-center md:text-left font-heading">
             Innovative Financial Solutions
           </h1>
         </motion.div>
@@ -27,13 +28,15 @@ const InnovativeSolutions = () => {
         <div className="p-6 md:p-16 lg:p-20 flex-1">
           <div className="w-full max-w-[90%] md:max-w-xl mx-auto md:mx-0">
             <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={textRevealVariant}>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tight text-center md:text-left">
+              {/* ADDED font-heading */}
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight text-center md:text-left font-heading">
                 Our Approach
               </h2>
             </motion.div>
 
             <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={paragraphVariant}>
-              <p className="text-base text-slate-900 text-center md:text-left">
+              {/* ADDED font-sans */}
+              <p className="text-slate-900 text-base md:text-lg lg:text-xl text-center md:text-left font-sans">
                 At Monify, we are reshaping the banking experience with
                 cutting-edge digital solutions tailored for modern lifestyles.
                 Our focus on automation, savings optimization, and competitive

@@ -35,26 +35,28 @@ const HeroSection = () => {
   };
 
   return (
-    <motion.div
+    <motion.div 
       className="bg-green-200 flex flex-col items-center justify-center gap-8 md:gap-16 min-h-screen pt-20 md:pt-32 lg:pt-40 px-4"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      <motion.div className="text-center max-w-4xl" variants={itemVariants}>
-        {/* Hero: display-size heading — only place on the site with this scale */}
-        <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-slate-900 tracking-tight mb-6">
+      <motion.div
+        className="text-center max-w-4xl"
+        variants={itemVariants}
+      >
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight mb-6">
           Smart Finance, Simplified
         </h1>
       </motion.div>
 
       <motion.p
-        className="text-center text-slate-900 text-base md:text-lg max-w-2xl"
+        className="text-center text-slate-900 text-base md:text-lg lg:text-xl max-w-2xl"
         variants={itemVariants}
       >
         Welcome to Monify, your gateway to a smarter way of banking. Enjoy
-        seamless automated savings, precise investment tracking, and competitive
-        interest rates.
+        seamless automated savings, precise investment tracking, and
+        competitive interest rates.
       </motion.p>
 
       <motion.button

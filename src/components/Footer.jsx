@@ -5,21 +5,19 @@ import { FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="flex justify-center items-center  pt-20 pb-20 ">
-      <div className="flex flex-row justify-between items-center w-full max-w-6xl mx-auto p-4 ">
-        <div className="flex flex-col space-y-4">
+    <div className="flex justify-center items-center pt-16 pb-16">
+      <div className="flex flex-row justify-between items-center w-full max-w-6xl mx-auto px-4">
+        <div className="flex flex-col space-y-2">
           <div className="flex flex-row space-x-4">
-            <h3>Terms & Conditions</h3>
-            <h3>Privacy Policy</h3>
+            <span className="text-sm text-slate-600 hover:text-slate-900 cursor-pointer transition-colors">Terms & Conditions</span>
+            <span className="text-sm text-slate-600 hover:text-slate-900 cursor-pointer transition-colors">Privacy Policy</span>
           </div>
-          <div>
-            <h3>@2025 Ocean Reform</h3>
-          </div>
+          <p className="text-sm text-slate-500">© 2025 Ocean Reform</p>
         </div>
-        <div className="flex flex-row space-x-4">
-          <FaFacebookF />
-          <FaTwitter />
-          <FaLinkedinIn />
+        <div className="flex flex-row space-x-4 text-slate-600">
+          <FaFacebookF className="hover:text-slate-900 cursor-pointer transition-colors" />
+          <FaTwitter className="hover:text-slate-900 cursor-pointer transition-colors" />
+          <FaLinkedinIn className="hover:text-slate-900 cursor-pointer transition-colors" />
         </div>
       </div>
     </div>

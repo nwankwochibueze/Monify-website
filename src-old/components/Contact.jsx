@@ -29,6 +29,7 @@ const Contact = () => {
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: "" }));
     }
@@ -37,12 +38,15 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formErrors = validateForm();
+    
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
       return;
     }
+
     setIsSubmitting(true);
     try {
+      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       console.log("Form submitted:", formData);
       setIsSubmitted(true);
@@ -66,31 +70,31 @@ const Contact = () => {
   return (
     <section id="contact-section" className="bg-green-200 overflow-hidden">
       <div className="max-w-2xl mx-auto p-6 pt-20 lg:pt-32">
-        <motion.div
+        <motion.div 
           className="mb-4 text-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-4 tracking-tight">
             Get Financial Help
           </h2>
-          <p className="text-base text-slate-900">
+          <p className="text-slate-900 text-base md:text-lg">
             Talk to our team
           </p>
         </motion.div>
 
         {isSubmitted ? (
-          <motion.div
+          <motion.div 
             className="text-center p-4 bg-white/50 rounded-lg"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <h3 className="font-heading text-xl font-semibold text-slate-800 mb-2">
+            <h3 className="text-xl font-medium text-gray-800 mb-2">
               Thank you!
             </h3>
-            <p className="text-base text-slate-600">
+            <p className="text-gray-600">
               We've received your message and will get back to you soon.
             </p>
             <button
@@ -106,7 +110,7 @@ const Contact = () => {
               <div key={field}>
                 <label
                   htmlFor={field}
-                  className="block text-sm font-medium text-slate-700 mb-1"
+                  className="block text-sm font-medium text-gray-700 mb-1"
                 >
                   {field.charAt(0).toUpperCase() + field.slice(1).replace(/([A-Z])/g, ' $1')}
                   <span className="text-red-500 ml-1">*</span>
@@ -119,7 +123,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={4}
-                    className={`w-full px-3 py-2 border rounded-md text-base focus:outline-none focus:ring-2 focus:ring-slate-800 transition-colors ${
+                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-slate-800 transition-colors ${
                       errors[field] ? 'border-red-500' : 'border-slate-500'
                     }`}
                     aria-invalid={errors[field] ? 'true' : 'false'}
@@ -133,7 +137,7 @@ const Contact = () => {
                     value={formData[field]}
                     onChange={handleChange}
                     required
-                    className={`w-full px-3 py-2 border rounded-md text-base focus:outline-none focus:ring-2 focus:ring-slate-800 transition-colors ${
+                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-slate-800 transition-colors ${
                       errors[field] ? 'border-red-500' : 'border-slate-500'
                     }`}
                     aria-invalid={errors[field] ? 'true' : 'false'}
@@ -176,9 +180,9 @@ const Contact = () => {
         viewport={{ once: true, amount: 0.3 }}
         variants={imageZoomVariant}
       >
-        <img
-          src={Fintech4}
-          alt="Financial consultation"
+        <img 
+          src={Fintech4} 
+          alt="Financial consultation" 
           className="w-full mx-auto rounded-lg shadow-lg"
           loading="lazy"
         />

@@ -39,16 +39,16 @@ function TestimonialCard({ name, role, quote, avatar, index }) {
       whileHover={{ y: -5 }}
     >
       <div className="flex items-center mb-4">
-        <div className="w-10 h-10 bg-slate-900 text-green-200 rounded-full flex items-center justify-center font-bold text-sm mr-4">
+        <div className="w-12 h-12 bg-slate-900 text-green-200 rounded-full flex items-center justify-center font-bold text-lg mr-4">
           {avatar}
         </div>
         <div>
-          <h3 className="font-heading text-base font-semibold text-slate-800">{name}</h3>
+          <h3 className="text-lg font-semibold text-slate-800">{name}</h3>
           <p className="text-sm text-slate-600">{role}</p>
         </div>
       </div>
-      <div className="text-emerald-600 text-3xl font-serif mb-2">"</div>
-      <p className="text-base text-slate-700 italic">"{quote}"</p>
+      <div className="text-emerald-600 text-4xl font-serif mb-2">"</div>
+      <p className="text-slate-700 italic">"{quote}"</p>
     </motion.div>
   );
 }
@@ -73,7 +73,7 @@ const Testimonials = () => {
           viewport={{ once: true, amount: 0.3 }}
           variants={textRevealVariant}
         >
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-900 text-center tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 text-center tracking-tight">
             What Our Clients Say
           </h2>
         </motion.div>

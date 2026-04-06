@@ -1,33 +1,42 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom"; // Import useNavigate
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { Link as ScrollLink, scroller } from "react-scroll";
+import { Link as ScrollLink, scroller } from "react-scroll"; // Import scroller from react-scroll
 import MonifyLogo from "../assets/MonifyLogo.svg";
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Initialize useNavigate
 
-  const handleNav = () => setNav(!nav);
+  const handleNav = () => {
+    setNav(!nav);
+  };
 
-  const handleLinkClick = () => setNav(false);
+  const handleLinkClick = () => {
+    setNav(false); // Close the menu after clicking a link
+  };
 
   const handleContactClick = () => {
+    // Close the menu
     setNav(false);
+    // Navigate to the homepage first
     if (window.location.pathname !== "/") {
       navigate("/");
+
+      // Wait for the navigation to complete before scrolling
       setTimeout(() => {
         scroller.scrollTo("contact-section", {
           smooth: true,
           duration: 500,
-          offset: -70,
+          offset: -70, // Adjust for any fixed headers
         });
-      }, 300);
+      }, 300); // Slightly increase the delay to ensure the DOM is ready
     } else {
+      // If already on the homepage, scroll directly
       scroller.scrollTo("contact-section", {
         smooth: true,
         duration: 500,
-        offset: -70,
+        offset: -70, // Adjust for any fixed headers
       });
     }
   };
@@ -35,23 +44,21 @@ const NavBar = () => {
   const navLinks = [
     { path: "/about", name: "About" },
     { path: "/faq", name: "FAQ" },
-    { path: "contact-section", name: "Contact" },
+    { path: "contact-section", name: "Contact" }, // Updated path for Contact
   ];
 
   return (
-    // px-8 = 32px padding on mobile (very noticeable)
-    // md:px-6 = returns to standard on desktop
-    <nav className="bg-green-200 fixed top-0 left-0 w-full z-50 flex items-center justify-between h-16 px-8 md:px-12">
-      {/* Logo Container */}
-      <div className="flex items-center space-x-2">
+    <nav className="bg-green-200 fixed top-0 left-0 w-full z-50 flex items-center h-18 px-6">
+      {/* Logo */}
+      <div className="flex-shrink-0 flex items-center space-x-2">
         <img
           src={MonifyLogo}
           alt="Monify Logo"
-          className="h-4 w-4 md:h-7 md:w-7 object-contain" // 16px on mobile
+          className="h-8 w-8" // Adjust the size of the logo as needed
         />
         <h1
-          className="text-base md:text-2xl font-bold cursor-pointer select-none"
-          onClick={() => navigate("/")}
+          className="text-2xl font-bold cursor-pointer"
+          onClick={() => navigate("/")} // Navigate to the homepage
         >
           Monify
         </h1>
@@ -64,7 +71,7 @@ const NavBar = () => {
             <li key={path}>
               {path === "contact-section" ? (
                 <button
-                  onClick={handleContactClick}
+                  onClick={handleContactClick} // Use the custom handler for Contact
                   className="cursor-pointer hover:text-gray-500"
                 >
                   {name}
@@ -85,9 +92,9 @@ const NavBar = () => {
       </div>
 
       {/* Mobile Menu Icon */}
-      <div className="md:hidden flex items-center z-30">
-        <div onClick={handleNav} className="text-xl cursor-pointer">
-          {nav ? <AiOutlineClose size={22} /> : <AiOutlineMenu size={22} />}
+      <div className="md:hidden flex items-center ml-auto z-30">
+        <div onClick={handleNav} className="text-2xl cursor-pointer">
+          {nav ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}
         </div>
       </div>
 

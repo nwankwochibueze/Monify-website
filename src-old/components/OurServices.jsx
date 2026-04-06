@@ -1,35 +1,37 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"; // Import motion from Framer Motion
 
 const OurServices = () => {
+  // Animation variants for text reveal
   const textRevealVariant = {
-    hidden: { opacity: 0, y: "100%" },
+    hidden: { opacity: 0, y: "100%" }, // Start fully hidden and below the viewport
     visible: {
       opacity: 1,
       y: "0%",
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.8, ease: "easeOut" }, // Smooth reveal
     },
   };
 
+  // Animation variants for paragraph fade-in
   const fadeInVariant = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { duration: 0.8, delay: 0.3 },
+      transition: { duration: 0.8, delay: 0.3 }, // Fade in with a slight delay
     },
   };
 
   return (
-    <div className="bg-white pt-20 md:pt-40 pb-20 md:pb-40">
-      {/* Section heading — consistent h2 scale used across all sections */}
+    <div className="bg-white pt-20 md:pt-40 pb-20 md:pb-40 ">
+      {/* Animated Heading */}
       <motion.div
-        className="overflow-hidden text-center md:text-left px-4 md:px-20"
+        className="overflow-hidden text-center md:text-left px-4 md:px-20" // Adjust padding for smaller screens
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.5 }} // Trigger animation when 50% of the section is in view
         variants={textRevealVariant}
       >
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-900 mb-8 md:mb-16 tracking-tight">
+        <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-8 md:mb-16 tracking-tight transform scale-y-100 ">
           Our Services
         </h2>
       </motion.div>
@@ -59,23 +61,25 @@ const OurServices = () => {
           },
         ].map((service, index) => (
           <div key={index} className="space-y-4">
+            {/* Border */}
             <div className="border-t border-slate-300 mb-6"></div>
 
-            {/* Card subheading */}
+            {/* Animated Subheading */}
             <motion.div
               className="overflow-hidden"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }} // Trigger animation when 20% of the card is in view
               variants={textRevealVariant}
             >
-              <h3 className="font-heading text-xl md:text-2xl font-semibold text-slate-800 mb-4">
+              <h3 className="text-2xl md:text-3xl font-semibold text-slate-800 mb-4">
                 {service.title}
               </h3>
             </motion.div>
 
+            {/* Animated Paragraph */}
             <motion.p
-              className="text-base text-slate-600 leading-relaxed"
+              className="text-slate-600 leading-relaxed"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}

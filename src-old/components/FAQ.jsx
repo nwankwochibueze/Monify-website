@@ -71,18 +71,18 @@ const FAQ = () => {
           viewport={{ once: true, amount: 0.3 }}
           variants={textRevealVariant}
         >
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-base text-slate-900">
+          <p className="text-slate-900 text-base md:text-lg">
             Find answers to common questions and get the information you need quickly.
           </p>
         </motion.div>
 
         <div className="space-y-2">
           {faqItems.map((item, index) => (
-            <motion.div
-              key={index}
+            <motion.div 
+              key={index} 
               className="border-b border-slate-900/20"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -91,20 +91,20 @@ const FAQ = () => {
             >
               <button
                 onClick={() => toggleAccordion(index)}
-                className="flex items-center justify-between w-full py-4 md:py-5 text-left font-medium text-slate-900 hover:text-slate-700 focus:outline-none focus:text-slate-700 transition-colors group"
+                className="flex items-center justify-between w-full py-4 md:py-6 text-left font-medium text-slate-900 hover:text-slate-700 focus:outline-none focus:text-slate-700 transition-colors group"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
               >
-                <span className="pr-4 text-base">{item.question}</span>
+                <span className="pr-4 text-base md:text-lg">{item.question}</span>
                 <span className="flex-shrink-0 ml-2">
                   {openIndex === index ? (
-                    <FiChevronUp className="text-lg transition-transform duration-200" />
+                    <FiChevronUp className="text-xl md:text-2xl transition-transform duration-200" />
                   ) : (
-                    <FiChevronDown className="text-lg transition-transform duration-200 group-hover:translate-y-1" />
+                    <FiChevronDown className="text-xl md:text-2xl transition-transform duration-200 group-hover:translate-y-1" />
                   )}
                 </span>
               </button>
-
+              
               <AnimatePresence>
                 {openIndex === index && (
                   <motion.div
@@ -114,7 +114,7 @@ const FAQ = () => {
                     animate="visible"
                     exit="exit"
                   >
-                    <p className="pb-4 md:pb-5 text-base text-slate-700 leading-relaxed">
+                    <p className="pb-4 md:pb-6 text-slate-700 leading-relaxed text-sm md:text-base">
                       {item.answer}
                     </p>
                   </motion.div>

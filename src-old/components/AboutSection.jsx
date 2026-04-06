@@ -6,14 +6,14 @@ const AboutSection = () => {
       <div className="bg-green-200 flex flex-col lg:flex-row justify-between pt-10 pb-32 md:pb-56 items-center lg:items-start">
         {/* Left side */}
         <div className="w-full lg:w-auto flex justify-center lg:justify-start">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-8 lg:mb-0 text-center lg:text-left px-4 md:px-20">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight transform scale-y-100 text-slate-900 mb-8 lg:mb-0 text-center lg:text-left px-4 md:px-20">
             About Us
           </h2>
         </div>
 
         {/* Right side */}
         <div className="flex flex-col lg:block items-center lg:items-start">
-          <p className="text-base text-slate-800 max-w-xl text-center lg:text-left mb-6 lg:px-6">
+          <p className="text-base md:text-lg lg:text-xl text-slate-800 max-w-xl text-center lg:text-left mb-6 lg:px-6">
             At Monify, we are dedicated to providing a modernized approach to
             financial services. Our focus is on ensuring that banking is
             accessible, convenient, and tailored to meet the diverse needs of

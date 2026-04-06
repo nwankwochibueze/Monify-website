@@ -1,3 +1,4 @@
+// src/components/OurMission.jsx
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -12,16 +13,18 @@ const OurMission = () => {
   };
 
   return (
-    <main className="bg-green-200 pt-10 lg:pt-20">
+    <main className="bg-green-200 pt:10 lg:pt-20">
       <div className="p-8 md:p-16 lg:p-20 pb-0 md:pb-0 lg:pb-0 text-center md:text-left">
         <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={textRevealVariant}>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-900 mb-10 tracking-tight text-center md:text-left">
+          {/* ADDED font-heading */}
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-16 tracking-tight text-center md:text-left font-heading">
             Mission
           </h2>
         </motion.div>
 
         <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={paragraphVariant}>
-          <p className="text-base text-slate-900 max-w-4xl mx-auto md:mx-0 text-center md:text-left">
+          {/* ADDED font-sans */}
+          <p className="text-slate-900 text-lg md:text-xl max-w-4xl mx-auto md:mx-0 text-center md:text-left font-sans">
             Our mission at Monify is to lead the financial industry into a new
             era of accessibility and innovation. By providing automated savings
             options, precise investment tracking, and attractive interest rates,
